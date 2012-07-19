@@ -26,11 +26,11 @@ setup(name='trytond_country_zip',
     author=info.get('author', ''),
     author_email=info.get('email', ''),
     url=info.get('website', ''),
-    download_url="http://downloads.tryton.org/" + \
-            info.get('version', '0.0.1').rsplit('.', 1)[0] + '/',
+    download_url="https://bitbucket.org/zikzakmedia/trytond-country_zip",
     package_dir={'trytond.modules.country_zip': '.'},
     packages=[
         'trytond.modules.country_zip',
+        'trytond.modules.country_zip.tests',
     ],
     package_data={
         'trytond.modules.country_zip': info.get('xml', []) \
@@ -65,6 +65,6 @@ setup(name='trytond_country_zip',
     [trytond.modules]
     country_zip = trytond.modules.country_zip
     """,
-    # test_suite='tests',
-    # test_loader='trytond.test_loader:Loader',
+    test_suite='tests',
+    test_loader='trytond.test_loader:Loader',
 )
