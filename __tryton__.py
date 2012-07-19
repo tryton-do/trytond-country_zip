@@ -6,7 +6,7 @@
     'name' : 'Country, Subdivision and City from Zip',
     'name_es_ES': 'País, subdivisión y ciudad a partir de código postal',
     'name_ca_ES': 'País, subdivisió i ciutat a partir de codi postal',
-    'version' : '0.0.2',
+    'version' : '2.4.0',
     'author' : 'Zikzakmedia SL',
     'email': 'zikzak@zikzakmedia.com',
     'website': 'http://www.zikzakmedia.com/',
