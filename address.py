@@ -5,16 +5,18 @@
 
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval
-from trytond.pool import Pool
+from trytond.pool import Pool, PoolMeta
 
 __all__ = ['Address']
+__metaclass__ = PoolMeta
 
 STATES = {
     'readonly': ~Eval('active'),
     }
 DEPENDS = ['active']
 
-class Address(ModelSQL, ModelView):
+
+class Address:
     "Address"
     __name__ = 'party.address'
     
