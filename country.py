@@ -5,14 +5,14 @@
 
 from trytond.model import ModelView, ModelSQL, fields
 
+__all__ = ['CountryZip']
+
 class CountryZip(ModelSQL, ModelView):
     "Country Zip"
-    _name = "country.zip"
-    _description = __doc__
+    __name__ = "country.zip"
 
     zip = fields.Char('Zip', required=True, select=1)
     city = fields.Char('City', select=1)
     subdivision = fields.Many2One('country.subdivision', 'Subdivision',
             ondelete='CASCADE', select=1)
 
-CountryZip()

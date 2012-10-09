@@ -7,6 +7,8 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval
 from trytond.pool import Pool
 
+__all__ = ['Address']
+
 STATES = {
     'readonly': ~Eval('active'),
     }
@@ -14,27 +16,24 @@ DEPENDS = ['active']
 
 class Address(ModelSQL, ModelView):
     "Address"
-    _name = 'party.address'
+    __name__ = 'party.address'
     
     zip = fields.Char('Zip', states=STATES, depends=DEPENDS, 
         on_change=['zip', 'city', 'subdivision', 'country'])
     
-    def on_change_zip(self, vals):
-        pool = Pool()
-        country_zip_obj = pool.get('country.zip')
-        subdivision_obj = pool.get('country.subdivision')
+    def on_change_zip(self):
         res = {}
-        
-        if vals.get('zip'):
-            country_zips = country_zip_obj.search_read([('zip', '=', vals['zip'])])
+        Zip = Pool().get('country.zip')
+        Subdivision = Pool().get('country.subdivision')
+
+        if self.zip:
+            country_zips = Zip.search_read([('zip','=',self.zip)])
             country_zip = country_zips and country_zips[0] or False
             if country_zip:
                 res['city'] = country_zip['city']
-                if country_zip['subdivision']:
-                    subdivision = subdivision_obj.read(country_zip['subdivision'])
+                if country_zip.get('subdivision'):
+                    subdivisions = Subdivision.read([country_zip['subdivision']])
                     res['subdivision'] = country_zip['subdivision']
-                    res['country'] = subdivision['country']
+                    res['country'] = subdivisions[0]['country']
 
         return res
-
-Address()
