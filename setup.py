@@ -33,14 +33,14 @@ setup(name='trytonzz_country_zip',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com/',
-    download_url="https://bitbucket.org/zikzakmedia/trytonzz-country_zip",
-    package_dir={'trytonzz.modules.country_zip': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytond-country_zip",
+    package_dir={'trytond.modules.country_zip': '.'},
     packages=[
-        'trytonzz.modules.country_zip',
-        'trytonzz.modules.country_zip.tests',
+        'trytond.modules.country_zip',
+        'trytond.modules.country_zip.tests',
     ],
     package_data={
-        'trytonzz.modules.country_zip': info.get('xml', []) \
+        'trytond.modules.country_zip': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -69,9 +69,9 @@ setup(name='trytonzz_country_zip',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytonzz.modules]
-    country_zip = trytonzz.modules.country_zip
+    [trytond.modules]
+    country_zip = trytond.modules.country_zip
     """,
     test_suite='tests',
-    test_loader='trytonzz.test_loader:Loader',
+    test_loader='trytond.test_loader:Loader',
 )
