@@ -20,8 +20,8 @@ Por ejemplo, el código ES08720, rellenará los campos:
 * Provincia: Barcelona,
 * País: España.
 
-Módulos que dependen
-====================
+Módulos de los que depende
+==========================
 
 Instalados
 ----------
