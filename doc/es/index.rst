@@ -35,8 +35,8 @@ Instalados
 Dependencias
 ------------
 
-* Pais_
+* `País`_
 * Terceros_
 
-.. _Pais: ../country/index.html
+.. _País: ../country/index.html
 .. _Terceros: ../party/index.html
