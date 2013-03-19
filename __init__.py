@@ -5,8 +5,8 @@
 
 from trytond.pool import Pool
 from .configuration import *
-from country import *
-from address import *
+from .country import *
+from .address import *
 
 
 def register():
