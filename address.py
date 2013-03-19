@@ -22,7 +22,14 @@ class Address:
     
     zip = fields.Char('Zip', states=STATES, depends=DEPENDS, 
         on_change=['zip', 'city', 'subdivision', 'country'])
-    
+
+    @staticmethod
+    def default_zip():
+        Configuration = Pool().get('party.configuration')
+        config = Configuration(1)
+        if config.default_prefix_zip:
+            return config.default_prefix_zip
+
     def on_change_zip(self):
         res = {}
         Zip = Pool().get('country.zip')
