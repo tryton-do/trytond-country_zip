@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 #This file is part country_zip module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains 
+#The COPYRIGHT file at the top level of this repository contains
 #the full copyright notices and license terms.
 
 from trytond.model import fields
@@ -19,8 +19,8 @@ DEPENDS = ['active']
 class Address:
     "Address"
     __name__ = 'party.address'
-    
-    zip = fields.Char('Zip', states=STATES, depends=DEPENDS, 
+
+    zip = fields.Char('Zip', states=STATES, depends=DEPENDS,
         on_change=['zip', 'city', 'subdivision', 'country'])
 
     @staticmethod
