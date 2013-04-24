@@ -17,12 +17,3 @@ Por ejemplo, el código ES08720, rellenará los campos:
 * Localidad: Vilafranca del Penedès,
 * Provincia: Barcelona,
 * País: España.
-
-Dependencias
-------------
-
-* `País`_
-* Terceros_
-
-.. _País: ../country/index.html
-.. _Terceros: ../party/index.html
