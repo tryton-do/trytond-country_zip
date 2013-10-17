@@ -10,5 +10,5 @@ __metaclass__ = PoolMeta
 
 class Configuration:
     __name__ = 'party.configuration'
-    default_prefix_zip = fields.Property(
-        fields.Char('Prefix Zip', help='Default prefix country (uppercase).'))
+    default_country = fields.Property(fields.Many2One('country.country',
+            'Default Country'))

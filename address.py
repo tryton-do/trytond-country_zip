@@ -18,29 +18,42 @@ class Address:
         super(Address, cls).__setup__()
         if cls.zip.on_change is None:
             cls.zip.on_change = []
-        for field in ('zip', 'city', 'subdivision', 'country'):
+        for field in ('zip', 'country'):
             if not field in cls.zip.on_change:
                 cls.zip.on_change.append(field)
+        if cls.country.on_change is None:
+            cls.country.on_change = []
+        for field in ('zip', 'country'):
+            if not field in cls.country.on_change:
+                cls.country.on_change.append(field)
 
     @staticmethod
-    def default_zip():
+    def default_country():
         Configuration = Pool().get('party.configuration')
         config = Configuration(1)
-        if config.default_prefix_zip:
-            return config.default_prefix_zip
+        if config.default_country:
+            return config.default_country.id
 
-    def on_change_zip(self):
+    def get_subdivision_country(self):
         res = {}
         Zip = Pool().get('country.zip')
         Subdivision = Pool().get('country.subdivision')
 
-        if self.zip:
-            zips = Zip.search([('zip', '=', self.zip)])
+        if self.zip and self.country:
+            zips = Zip.search([
+                        ('zip', '=', self.zip),
+                        ('subdivision.country', '=', self.country.id),
+                        ])
             if zips:
                 zip_ = zips[0]
                 res['city'] = zip_.city
                 if zip_.subdivision:
                     res['subdivision'] = zip_.subdivision.id
-                    res['country'] = (zip_.subdivision.country.id
-                        if zip_.subdivision.country else None)
         return res
+
+    def on_change_zip(self):
+        return self.get_subdivision_country()
+
+    def on_change_country(self):
+        return self.get_subdivision_country()
+
