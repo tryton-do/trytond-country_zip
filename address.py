@@ -8,17 +8,19 @@ from trytond.pool import Pool, PoolMeta
 __all__ = ['Address']
 __metaclass__ = PoolMeta
 
-STATES = {
-    'readonly': ~Eval('active'),
-    }
-DEPENDS = ['active']
-
 
 class Address:
     "Address"
     __name__ = 'party.address'
-    zip = fields.Char('Zip', states=STATES, depends=DEPENDS,
-        on_change=['zip', 'city', 'subdivision', 'country'])
+
+    @classmethod
+    def __setup__(cls):
+        super(Address, cls).__setup__()
+        if cls.zip.on_change is None:
+            cls.zip.on_change = []
+        for field in ('zip', 'city', 'subdivision', 'country'):
+            if not field in cls.zip.on_change:
+                cls.zip.on_change.append(field)
 
     @staticmethod
     def default_zip():
@@ -33,13 +35,12 @@ class Address:
         Subdivision = Pool().get('country.subdivision')
 
         if self.zip:
-            country_zips = Zip.search_read([('zip','=',self.zip)])
-            country_zip = country_zips and country_zips[0] or False
-            if country_zip:
-                res['city'] = country_zip['city']
-                if country_zip.get('subdivision'):
-                    subdivisions = Subdivision.read([country_zip['subdivision']])
-                    res['subdivision'] = country_zip['subdivision']
-                    res['country'] = subdivisions[0]['country']
-
+            zips = Zip.search([('zip', '=', self.zip)])
+            if zips:
+                zip_ = zips[0]
+                res['city'] = zip_.city
+                if zip_.subdivision:
+                    res['subdivision'] = zip_.subdivision.id
+                    res['country'] = (zip_.subdivision.country.id
+                        if zip_.subdivision.country else None)
         return res
