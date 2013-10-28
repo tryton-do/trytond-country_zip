@@ -3,12 +3,11 @@
 Códigos postales de país
 ========================
 
-En el campo código postal de las direcciones, puede añadir el prefijo del país mas
-el número de código postal para que se autorellene automáticamente la ciudad,
-la subdivisión y el país a que corresponde ese código postal. Si los datos no son
-los deseados, puede modificar esta información.
+En el formulario de las direcciones de la empresa, si disponemos de un país en la
+dirección, podemos introducir el código postal y nos rellenará automáticamente la
+subdivisión y la ciudad a que corresponde ese código postal.
 
-Por ejemplo, el código ES08720, rellenará los campos:
+Por ejemplo, el código 08720 y España, rellenará los campos:
 
 * Localidad: Vilafranca del Penedès,
 * Provincia: Barcelona,
