@@ -4,7 +4,7 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:country.zip,city:"
 msgid "City"
-msgstr "Població"
+msgstr "Ciutat"
 
 msgctxt "field:country.zip,create_date:"
 msgid "Create Date"
@@ -24,7 +24,7 @@ msgstr "Nom"
 
 msgctxt "field:country.zip,subdivision:"
 msgid "Subdivision"
-msgstr "Provínica"
+msgstr "Subdivissió"
 
 msgctxt "field:country.zip,write_date:"
 msgid "Write Date"
@@ -38,25 +38,21 @@ msgctxt "field:country.zip,zip:"
 msgid "Zip"
 msgstr "Codi postal"
 
-msgctxt "field:party.configuration,default_prefix_zip:"
-msgid "Prefix Zip"
-msgstr "Prefix del codi postal"
-
-msgctxt "help:party.configuration,default_prefix_zip:"
-msgid "Default prefix country (uppercase)."
-msgstr "Prefix per defecte del país pel codi postal (majúscules)."
+msgctxt "field:party.configuration,default_country:"
+msgid "Default Country"
+msgstr "País per defecte"
 
 msgctxt "model:country.zip,name:"
 msgid "Country Zip"
-msgstr "Codi postal i poblacions"
+msgstr "Codi postal país"
 
 msgctxt "model:ir.action,name:act_country_zip_form"
 msgid "Country Zips"
-msgstr "Codis postals i poblacions"
+msgstr "Codis postals país"
 
 msgctxt "model:ir.ui.menu,name:menu_country_zip_form"
 msgid "Country Zips"
-msgstr "Codis postals i poblacions"
+msgstr "Codis postals país"
 
 msgctxt "view:country.zip:"
 msgid "Countries"
@@ -64,4 +60,4 @@ msgstr "Països"
 
 msgctxt "view:country.zip:"
 msgid "Country Zip"
-msgstr "Codi postal i poblacions"
+msgstr "Codi postal país"
