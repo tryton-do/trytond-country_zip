@@ -8,11 +8,11 @@ msgstr "Ciudad"
 
 msgctxt "field:country.zip,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:country.zip,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:country.zip,id:"
 msgid "ID"
@@ -20,11 +20,11 @@ msgstr "ID"
 
 msgctxt "field:country.zip,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Dominio"
 
 msgctxt "field:country.zip,subdivision:"
 msgid "Subdivision"
-msgstr "Província"
+msgstr "Subdivisión"
 
 msgctxt "field:country.zip,write_date:"
 msgid "Write Date"
@@ -38,30 +38,26 @@ msgctxt "field:country.zip,zip:"
 msgid "Zip"
 msgstr "Código postal"
 
-msgctxt "field:party.configuration,default_prefix_zip:"
-msgid "Prefix Zip"
-msgstr "Prefijo del código postal"
-
-msgctxt "help:party.configuration,default_prefix_zip:"
-msgid "Default prefix country (uppercase)."
-msgstr "Prefijo por defecto del código postal (mayúsculas)."
+msgctxt "field:party.configuration,default_country:"
+msgid "Default Country"
+msgstr "País por defecto"
 
 msgctxt "model:country.zip,name:"
 msgid "Country Zip"
-msgstr "Código postal y poblaciones"
+msgstr "Código postal país"
 
 msgctxt "model:ir.action,name:act_country_zip_form"
 msgid "Country Zips"
-msgstr "Códigos postales y poblaciones"
+msgstr "Códigos postales país"
 
 msgctxt "model:ir.ui.menu,name:menu_country_zip_form"
 msgid "Country Zips"
-msgstr "Códigos postales y poblaciones"
+msgstr "Códigos postales país"
 
 msgctxt "view:country.zip:"
 msgid "Countries"
-msgstr "Poblaciones"
+msgstr "Países"
 
 msgctxt "view:country.zip:"
 msgid "Country Zip"
-msgstr "Código postal y poblaciones"
+msgstr "Código postal país"
