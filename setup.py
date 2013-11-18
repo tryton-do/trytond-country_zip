@@ -5,7 +5,15 @@
 
 from setuptools import setup
 import re
+import os
 import ConfigParser
+
+MODULE = 'country_zip'
+PREFIX = 'trytonspain'
+MODULE2PREFIX = {}
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 config = ConfigParser.ConfigParser()
 config.readfp(open('tryton.cfg'))
@@ -20,28 +28,32 @@ minor_version = int(minor_version)
 requires = []
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res|webdav)(\W|$)', dep):
-        requires.append('trytond_%s >= %s.%s, < %s.%s' %
-                (dep, major_version, minor_version, major_version,
-                    minor_version + 1))
+        prefix = MODULE2PREFIX.get(dep, 'trytond')
+        requires.append('%s_%s >= %s.%s, < %s.%s' %
+                (prefix, dep, major_version, minor_version,
+                major_version, minor_version + 1))
 requires.append('trytond >= %s.%s, < %s.%s' %
         (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytonspain_country_zip',
+tests_require = ['proteus >= %s.%s, < %s.%s' %
+    (major_version, minor_version, major_version, minor_version + 1)]
+
+setup(name='%s_%s' % (PREFIX, MODULE),
     version=info.get('version', '0.0.1'),
-    description='Country, Subdivision and City from Zip',
+    description='Tryton module search country, subdivision and city from zip',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
-    url='http://www.zikzakmedia.com/',
-    download_url="https://bitbucket.org/trytonspain/trytond-country_zip",
-    package_dir={'trytond.modules.country_zip': '.'},
+    url='http://www.zikzakmedia.com',
+    download_url="https://bitbucket.org/trytonspain/trytond-%s" % MODULE,
+    package_dir={'trytond.modules.%s' % MODULE: '.'},
     packages=[
-        'trytond.modules.country_zip',
-        'trytond.modules.country_zip.tests',
-    ],
+        'trytond.modules.%s' % MODULE,
+        'trytond.modules.%s.tests' % MODULE,
+        ],
     package_data={
-        'trytond.modules.country_zip': info.get('xml', []) \
-            + ['tryton.cfg', 'locale/*.po'],
-    },
+        'trytond.modules.%s' % MODULE: (info.get('xml', [])
+            + ['tryton.cfg', 'view/*.xml', 'locale/*.po']),
+        },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
@@ -49,28 +61,22 @@ setup(name='trytonspain_country_zip',
         'Intended Audience :: Developers',
         'Intended Audience :: Financial and Insurance Industry',
         'Intended Audience :: Legal Industry',
+        'Intended Audience :: Manufacturing',
         'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Natural Language :: Bulgarian',
-        'Natural Language :: Czech',
-        'Natural Language :: Dutch',
-        'Natural Language :: English',
-        'Natural Language :: French',
-        'Natural Language :: German',
-        'Natural Language :: Russian',
+        'Natural Language :: Catalan',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Topic :: Office/Business',
-        'Topic :: Office/Business :: Financial :: Accounting',
-    ],
+        ],
     license='GPL-3',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    country_zip = trytond.modules.country_zip
-    """,
+    %s = trytond.modules.%s
+    """ % (MODULE, MODULE),
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
 )
