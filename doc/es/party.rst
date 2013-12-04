@@ -1,3 +1,9 @@
+#:inside:party/party:bullet_list:configuration_fields#
+
+* |default_country|: Para el cálculo de ciudad, región y país a partir de un código postal
+
+.. |default_country| field:: party.configuration/default_country
+
 #:after:party/party:section:direcciones#
 
 Códigos postales de país
