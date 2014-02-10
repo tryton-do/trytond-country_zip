@@ -6,6 +6,10 @@ msgctxt "field:country.zip,city:"
 msgid "City"
 msgstr "Ciudad"
 
+msgctxt "field:country.zip,country:"
+msgid "Country"
+msgstr "País"
+
 msgctxt "field:country.zip,create_date:"
 msgid "Create Date"
 msgstr "Fecha creación"
@@ -20,7 +24,7 @@ msgstr "ID"
 
 msgctxt "field:country.zip,rec_name:"
 msgid "Name"
-msgstr "Dominio"
+msgstr "Nombre"
 
 msgctxt "field:country.zip,subdivision:"
 msgid "Subdivision"
