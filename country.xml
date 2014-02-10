@@ -6,32 +6,13 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.ui.view" id="country_zip_view_form">
             <field name="model">country.zip</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Country Zip">
-                    <label name="zip"/>
-                    <field name="zip"/>
-                    <label name="city"/>
-                    <field name="city"/>
-                    <label name="subdivision"/>
-                    <field name="subdivision"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">country_zip_form</field>
         </record>
 
         <record model="ir.ui.view" id="country_zip_view_tree">
             <field name="model">country.zip</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Countries">
-                    <field name="zip"/>
-                    <field name="city"/>
-                    <field name="subdivision"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">country_zip_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="act_country_zip_form">
