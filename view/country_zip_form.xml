@@ -6,4 +6,6 @@
     <field name="city"/>
     <label name="subdivision"/>
     <field name="subdivision"/>
+    <label name="country"/>
+    <field name="country"/>
 </form>

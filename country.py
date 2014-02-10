@@ -12,4 +12,14 @@ class CountryZip(ModelSQL, ModelView):
     zip = fields.Char('Zip', required=True, select=1)
     city = fields.Char('City', select=1)
     subdivision = fields.Many2One('country.subdivision', 'Subdivision',
-            ondelete='CASCADE', select=1)
+        ondelete='CASCADE', select=1)
+    country = fields.Function(fields.Many2One('country.country', 'Country'),
+            'get_country', searcher='search_country'
+        )
+
+    def get_country(self, name):
+        return self.subdivision.country.id
+
+    @classmethod
+    def search_country(cls, name, clause):
+        return [('subdivision.%s' % name,) + tuple(clause[1:])]
