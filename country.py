@@ -7,8 +7,9 @@ __all__ = ['CountryZip']
 
 
 class CountryZip(ModelSQL, ModelView):
-    "Country Zip"
-    __name__ = "country.zip"
+    'Country Zip'
+    __name__ = 'country.zip'
+    _rec_name = 'zip'
     zip = fields.Char('Zip', required=True, select=1)
     city = fields.Char('City', select=1)
     subdivision = fields.Many2One('country.subdivision', 'Subdivision',
