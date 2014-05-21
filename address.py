@@ -17,12 +17,12 @@ class Address:
             cls.zip.on_change = []
         for field in ('zip', 'country'):
             if not field in cls.zip.on_change:
-                cls.zip.on_change.append(field)
+                cls.zip.on_change.add(field)
         if cls.country.on_change is None:
             cls.country.on_change = []
         for field in ('zip', 'country'):
             if not field in cls.country.on_change:
-                cls.country.on_change.append(field)
+                cls.country.on_change.add(field)
 
     @staticmethod
     def default_country():
