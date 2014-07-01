@@ -16,8 +16,8 @@ Por ejemplo, el código 08720 y España, rellenará los campos:
 
 #:inside:party/party:section:configuration#
 
-Páis por defecto en las direcciones
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+País por defecto en las direcciones
+===================================
 
 En el campo |default_country| podemos especificar el país que se utilizará por
 defecto para la creación de nuevas direcciones de tercero.
