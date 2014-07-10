@@ -1,6 +1,7 @@
 #This file is part country_zip module for Tryton.
 #The COPYRIGHT file at the top level of this repository contains
 #the full copyright notices and license terms.
+from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
 
 __all__ = ['Address']
@@ -9,20 +10,6 @@ __metaclass__ = PoolMeta
 
 class Address:
     __name__ = 'party.address'
-
-    @classmethod
-    def __setup__(cls):
-        super(Address, cls).__setup__()
-        if cls.zip.on_change is None:
-            cls.zip.on_change = []
-        for field in ('zip', 'country'):
-            if not field in cls.zip.on_change:
-                cls.zip.on_change.add(field)
-        if cls.country.on_change is None:
-            cls.country.on_change = []
-        for field in ('zip', 'country'):
-            if not field in cls.country.on_change:
-                cls.country.on_change.add(field)
 
     @staticmethod
     def default_country():
@@ -47,8 +34,10 @@ class Address:
                     res['subdivision'] = zip_.subdivision.id
         return res
 
+    @fields.depends('zip', 'country')
     def on_change_zip(self):
         return self.get_subdivision_country()
 
+    @fields.depends('zip', 'country')
     def on_change_country(self):
         return self.get_subdivision_country()
