@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<tree string="Countries">
-    <field name="zip"/>
-    <field name="city"/>
-    <field name="subdivision"/>
-    <field name="country"/>
-</tree>
