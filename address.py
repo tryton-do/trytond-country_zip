@@ -19,7 +19,6 @@ class Address:
             return config.default_country.id
 
     def get_subdivision_country(self):
-        res = {}
         Zip = Pool().get('country.zip')
 
         if self.zip and self.country:
@@ -29,10 +28,9 @@ class Address:
                         ])
             if zips:
                 zip_ = zips[0]
-                res['city'] = zip_.city
+                self.city = zip_.city
                 if zip_.subdivision:
-                    res['subdivision'] = zip_.subdivision.id
-        return res
+                    self.subdivision = zip_.subdivision.id
 
     @fields.depends('zip', 'country')
     def on_change_zip(self):
