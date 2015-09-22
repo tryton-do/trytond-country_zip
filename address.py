@@ -27,15 +27,15 @@ class Address:
                         ('subdivision.country', '=', self.country.id),
                         ])
             if zips:
-                zip_ = zips[0]
+                zip_, = zips
                 self.city = zip_.city
                 if zip_.subdivision:
-                    self.subdivision = zip_.subdivision.id
+                    self.subdivision = zip_.subdivision
 
-    @fields.depends('zip', 'country')
+    @fields.depends('zip', 'country', 'city', 'subdivision')
     def on_change_zip(self):
         return self.get_subdivision_country()
 
-    @fields.depends('zip', 'country')
+    @fields.depends('zip', 'country', 'city', 'subdivision')
     def on_change_country(self):
         return self.get_subdivision_country()
