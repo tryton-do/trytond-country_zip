@@ -2,58 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "field:country.zip,city:"
-msgid "City"
-msgstr "Ciudad"
-
-msgctxt "field:country.zip,country:"
-msgid "Country"
-msgstr "País"
-
-msgctxt "field:country.zip,create_date:"
-msgid "Create Date"
-msgstr "Fecha creación"
-
-msgctxt "field:country.zip,create_uid:"
-msgid "Create User"
-msgstr "Usuario creación"
-
-msgctxt "field:country.zip,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:country.zip,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:country.zip,subdivision:"
-msgid "Subdivision"
-msgstr "Subdivisión"
-
-msgctxt "field:country.zip,write_date:"
-msgid "Write Date"
-msgstr "Fecha modificación"
-
-msgctxt "field:country.zip,write_uid:"
-msgid "Write User"
-msgstr "Usuario modificación"
-
-msgctxt "field:country.zip,zip:"
-msgid "Zip"
-msgstr "Código postal"
-
 msgctxt "field:party.configuration,default_country:"
 msgid "Default Country"
 msgstr "País por defecto"
-
-msgctxt "model:country.zip,name:"
-msgid "Country Zip"
-msgstr "Código postal país"
-
-msgctxt "view:country.zip:"
-msgid "Countries"
-msgstr "Países"
-
-msgctxt "view:country.zip:"
-msgid "Country Zip"
-msgstr "Código postal país"
