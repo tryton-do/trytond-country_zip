@@ -50,13 +50,6 @@ msgctxt "model:country.zip,name:"
 msgid "Country Zip"
 msgstr "Codi postal país"
 
-msgctxt "model:ir.action,name:"
-msgid "Country Zips"
-msgstr "Codis postals país"
-
-msgctxt "model:ir.ui.menu,name:"
-msgid "Country Zips"
-msgstr "Codis postals país"
 
 msgctxt "view:country.zip:"
 msgid "Countries"

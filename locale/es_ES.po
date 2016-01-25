@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -49,14 +49,6 @@ msgstr "País por defecto"
 msgctxt "model:country.zip,name:"
 msgid "Country Zip"
 msgstr "Código postal país"
-
-msgctxt "model:ir.action,name:"
-msgid "Country Zips"
-msgstr "Códigos postales país"
-
-msgctxt "model:ir.ui.menu,name:"
-msgid "Country Zips"
-msgstr "Códigos postales país"
 
 msgctxt "view:country.zip:"
 msgid "Countries"
